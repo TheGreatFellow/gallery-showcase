@@ -9,7 +9,11 @@ const bodyEl = document.body;
 
 // Calculate the viewport size
 let winsize = calcWinsize();
-window.addEventListener('resize', () => winsize = calcWinsize());
+window.addEventListener('resize', () =>{
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    winsize = calcWinsize()
+});
 
 /**
  * Class representing a grid of items
@@ -302,14 +306,13 @@ export class Grid {
             opacity: 1,
             startAt: {
                 y: '-100%',
-                scaleY: 3
+                scaleY: 2
             },
             y: '0%',
             scaleY: 1
         }, 'showContent')
 
 
-        lll
     }
 
     /**

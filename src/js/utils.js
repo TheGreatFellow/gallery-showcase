@@ -8,6 +8,7 @@ const preloadImages = (selector = 'img') => {
 };
 
 const calcWinsize = () => {
+  
     return { width: window.innerWidth, height: window.innerHeight };
 };
 

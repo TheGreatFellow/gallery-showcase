@@ -8,3 +8,8 @@ preloadImages('.column__item-img').then(() => {
     // Initialize the grid
     new Grid(document.querySelector('.columns'));
 });
+
+window.addEventListener('resize', () =>{
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
