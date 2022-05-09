@@ -132,7 +132,7 @@ main::after {
 .frame {
 	padding: 1.5rem;
 	position: relative;
-	z-index: 5000;
+	/* z-index: 5000; */
 	text-transform: uppercase;
 	display: grid;
 	grid-template-rows: auto auto;
@@ -182,7 +182,7 @@ main::after {
 	top: 0;
 	left: 0;
 	margin: 0;
-	margin-top: 0vw;
+
 	width: 100%;
 	font-size: 7.25vw;
 	z-index: 1000;
@@ -199,14 +199,37 @@ main::after {
 
 .heading--up {
 	display: none;
+	margin-top: -20vh;
+	animation: 0.9s cubic-bezier(0.075, 0.92, 0.165, 1) 1 200ms slideInTop forwards;
 }
 
 .heading--down {
 	bottom: 0;
 	top: auto;
 	margin-top: 0;
-	margin-bottom: 0vw;
+	margin-bottom: -20vh;
 	transform-origin: 50% 60%;
+	animation: 1s cubic-bezier(0.075, 0.82, 0.165, 1) 1 200ms slideInBottom forwards;
+}
+
+@keyframes slideInTop {
+	0% {
+		margin-top: -15vh;
+	}
+
+	100% {
+		margin-top: 0vh;
+	}
+}
+
+@keyframes slideInBottom {
+	0% {
+		margin-bottom: -15vh;
+	}
+
+	100% {
+		margin-bottom: 0vh;
+	}
 }
 
 .columns {
