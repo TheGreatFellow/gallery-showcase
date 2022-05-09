@@ -11,7 +11,7 @@
 body {
 	margin: 0;
 	--color-text: #000;
-	--color-bg: #b7b19f;
+	--color-bg: #D3D0DA;
 	--color-link: #000;
 	--color-link-hover: #000;
 	--color-heading: #111;
@@ -104,7 +104,7 @@ a:focus-visible {
 	background: none;
 	border: 0;
 	padding: 0;
-	margin: 0;
+	margin: 10px;
 	font: inherit;
 }
 
@@ -138,18 +138,20 @@ main::after {
 	grid-template-rows: auto auto;
 	grid-template-columns: 1fr auto;
 	grid-template-areas: 'title menu'
-						'links links';
+		'links links';
 }
 
 .frame__title {
-	font-size: 1rem;
+	font-size: 1.35rem;
 	margin: 0 0 0.5rem;
 	font-weight: normal;
 	grid-area: title;
+	/* animation: 1s ease-out 0s 1 slideInLeft; */
 }
 
 .frame__links {
 	grid-area: links;
+	font-size: 1.1rem;
 }
 
 .frame__links a {
@@ -180,9 +182,9 @@ main::after {
 	top: 0;
 	left: 0;
 	margin: 0;
-	margin-top: -5vw;
+	margin-top: 0vw;
 	width: 100%;
-	font-size: 12.25vw;
+	font-size: 7.25vw;
 	z-index: 1000;
 	pointer-events: none;
 	font-family: meno-banner, serif;
@@ -203,7 +205,7 @@ main::after {
 	bottom: 0;
 	top: auto;
 	margin-top: 0;
-	margin-bottom: -6vw;
+	margin-bottom: 0vw;
 	transform-origin: 50% 60%;
 }
 
@@ -420,17 +422,21 @@ main::after {
 	grid-area: back;
 	align-self: start;
 	justify-self: start;
+	transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 	margin-left: 1.5rem;
+	transform: scale(1.5);
 }
 
 .button-back svg {
 	stroke-linecap: round;
+	margin: 10px;
 }
 
 .button-back:hover,
 .button-back:focus {
 	outline: none;
 	stroke: #823725;
+	transform: scale(1.5);
 }
 
 
@@ -472,28 +478,46 @@ main::after {
 		margin: 0;
 		-webkit-writing-mode: vertical-rl;
 		writing-mode: vertical-rl;
-		transform: rotate(180deg);
+		transform: translateX(-190%) rotate(180deg);
 		white-space: nowrap;
+		animation: 1s cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s 1 slideInLeft forwards;
 	}
 
 	.frame__links {
 		text-align: center;
 		-webkit-writing-mode: vertical-rl;
 		writing-mode: vertical-rl;
-		transform: rotate(180deg);
+		transform: translateX(-190%) rotate(180deg);
 		margin: 0;
 		white-space: nowrap;
+		width: min-content;
+		animation: 1s cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s 1 slideInLeft forwards;
+	}
+
+
+	.frame__links a:nth-child(1) {
+		animation-delay: 0.1s;
+	}
+
+	.frame__links a:nth-child(2) {
+		animation-delay: 0.5s;
+	}
+
+	.frame__links a:nth-child(3) {
+		animation-delay: 0.3s;
 	}
 
 	.frame__links a {
 		border-bottom: 0;
 		border-left: 1px solid var(--color-link);
 		margin: 0.5rem 0;
+
 	}
 
 	.frame a,
 	.frame button {
 		pointer-events: auto;
+		width: min-content;
 	}
 
 	.button-menu {
@@ -658,4 +682,17 @@ html.has-scroll-dragging {
 [data-scroll-direction="horizontal"] .c-scrollbar_thumb {
 	right: auto;
 	bottom: 0;
+}
+
+
+@keyframes slideInLeft {
+	0% {
+		transform: translateX(0) rotate(180deg);
+
+	}
+
+	100% {
+		transform: translateX(100%) rotate(180deg);
+
+	}
 }

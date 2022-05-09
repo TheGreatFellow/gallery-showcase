@@ -139,8 +139,8 @@ export class Grid {
                 })
                 .addLabel('start', 0)
                 .set([gridItem.DOM.img.outer, gridItem.DOM.img.inner], { willChange: 'transform' }, 'start')
-                .to(gridItem.DOM.img.outer, {scaleY: 0.95,scaleX: 0.88}, 'start')
-                .to(gridItem.DOM.img.inner, {ease: 'power4', scaleY: 1.2, scaleX: 1.7}, 'start');
+                .to(gridItem.DOM.img.outer, {scaleY: 0.93,scaleX: 0.93}, 'start')
+                .to(gridItem.DOM.img.inner, {ease: 'expo', scaleY: 1.35, scaleX: 1.35}, 'start');
             });
 
             // Hovering out will reverse the scale values.
@@ -198,6 +198,7 @@ export class Grid {
 
             this.closeContent();
         });
+        
 
     }
 
@@ -239,11 +240,11 @@ export class Grid {
             willChange: 'transform, opacity'
         }, 'start')
         .to(this.DOM.heading.top, {
-            y: '-200%',
+            y: '-300%',
             scaleY: 4
         }, 'start')
         .to(this.DOM.heading.bottom, {
-            y: '200%',
+            y: '300%',
             scaleY: 4
         }, 'start+=0.05')
         .to(gridItem.DOM.img.outer, {
@@ -306,6 +307,9 @@ export class Grid {
             y: '0%',
             scaleY: 1
         }, 'showContent')
+
+
+        lll
     }
 
     /**
