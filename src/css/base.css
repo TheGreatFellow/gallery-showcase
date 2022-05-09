@@ -487,6 +487,7 @@ main::after {
 		align-content: space-between;
 		width: 100%;
 		max-width: none;
+		z-index: 1001;
 		height: 100%;
 		padding: 1.5rem 0 1.5rem 1rem;
 		pointer-events: none;
